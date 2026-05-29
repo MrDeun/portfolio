@@ -2,7 +2,9 @@
   "version": "5",
   "specifiers": {
     "npm:@tailwindcss/vite@^4.3.0": "4.3.0_vite@7.3.3",
+    "npm:@types/noisejs@^2.1.0": "2.1.0",
     "npm:astro@^6.4.1": "6.4.1",
+    "npm:noisejs@^2.1.0": "2.1.0",
     "npm:tailwindcss@^4.3.0": "4.3.0"
   },
   "npm": {
@@ -737,6 +739,9 @@
       "dependencies": [
         "@types/unist"
       ]
+    },
+    "@types/noisejs@2.1.0": {
+      "integrity": "sha512-wr00fdlH+qRK0R5R4JeNOuCyLKS4EB2pYzed2iubdwSHL3CZ1RjR5j3lmhQjZB7vZqtL5FxCM/dUZsR9kkGk5A=="
     },
     "@types/unist@3.0.3": {
       "integrity": "sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q=="
@@ -1766,6 +1771,9 @@
     "node-mock-http@1.0.4": {
       "integrity": "sha512-8DY+kFsDkNXy1sJglUfuODx1/opAGJGyrTuFqEoN90oRc2Vk0ZbD4K2qmKXBBEhZQzdKHIVfEJpDU8Ak2NJEvQ=="
     },
+    "noisejs@2.1.0": {
+      "integrity": "sha512-sw39KaUS2YBta6apZ0/H+nnCsUyxT/ZRxgv/HnDxx6pWO2e2nUmWgLhpOaQdlxxkFepIpxDrlXy3fHVx0S3SLg=="
+    },
     "normalize-path@3.0.0": {
       "integrity": "sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA=="
     },
@@ -2325,7 +2333,9 @@
     "packageJson": {
       "dependencies": [
         "npm:@tailwindcss/vite@^4.3.0",
+        "npm:@types/noisejs@^2.1.0",
         "npm:astro@^6.4.1",
+        "npm:noisejs@^2.1.0",
         "npm:tailwindcss@^4.3.0"
       ]
     }

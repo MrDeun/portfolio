@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-
+import "noisejs"
 export interface Props {
   title?: string;
 }
@@ -24,8 +24,62 @@ const { title = "VAULT-TEC TERMINAL" } = Astro.props as Props;
   </head>
   <body class="bg-[#0a0e0a] text-[#33ff33] font-mono antialiased">
     <div id="crt-vignette" class="fixed inset-0 z-[9998] pointer-events-none" style="background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.7) 100%);"></div>
-    <div class="min-h-screen relative z-0">
+    <canvas id="grid-canvas" class="fixed inset-0 z-0 pointer-events-none"></canvas>
+    <div class="min-h-screen relative z-[1]">
       <slot />
     </div>
   </body>
 </html>
+
+<script>
+  const canvas = document.getElementById('grid-canvas');
+  const ctx = canvas?.getContext('2d');
+
+  let offsetX = 0;
+  let offsetY = 0;
+  const spacing = 40;
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  function draw() {
+    const w = canvas.width;
+    const h = canvas.height;
+
+    ctx.clearRect(0, 0, w, h);
+
+    ctx.setLineDash([4, 6]);
+    ctx.lineWidth = 1;
+
+    const startX = offsetX % spacing;
+    const startY = offsetY % spacing;
+
+    for (let x = startX; x < w + spacing; x += spacing) {
+      ctx.strokeStyle = 'rgba(51, 255, 51, 0.25)';
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, h);
+      ctx.stroke();
+    }
+
+    for (let y = startY; y < h + spacing; y += spacing) {
+      ctx.strokeStyle = 'rgba(51, 255, 51, 0.25)';
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(w, y);
+      ctx.stroke();
+    }
+
+    ctx.setLineDash([]);
+
+    offsetX -= 0.15;
+    offsetY -= 0.08;
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
+</script>
