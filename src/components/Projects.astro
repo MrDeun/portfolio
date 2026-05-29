@@ -1,0 +1,70 @@
+---
+const projects = [
+  {
+    title: "Java Summary",
+    description: "A Spring Boot application that summarizes Java classes and generates tests using OpenAI LLMs. Analyzes source code and produces code descriptions and test suggestions.",
+    tags: ["Java", "Spring Boot", "OpenAI API"],
+    links: { github: "https://github.com/MrDeun/JavaSummary" },
+  },
+  {
+    title: "Rayboy (Game Boy Emulator)",
+    description: "Low-level Nintendo Game Boy emulator in C++ with a full software implementation of a custom 8-bit CPU based on the Intel 8080. Multithreaded architecture separates graphics from emulation.",
+    tags: ["C++", "Assembly", "Emulation"],
+    links: { github: "https://github.com/MrDeun/Rayboy" },
+  },
+  {
+    title: "My-Redis",
+    description: "A Redis-like key-value store built in Go from scratch. Supports data persistence via text file, with multithreaded concurrent I/O for responsiveness during saves.",
+    tags: ["Go", "Concurrency", "Data Persistence"],
+    links: { github: "https://github.com/MrDeun/My-Redis" },
+  },
+  {
+    title: "Background Removal",
+    description: "Background detection and removal model in Python using PyTorch and OpenCV. Autoencoder-based architecture trained on COCO dataset for pixel-level foreground/background segmentation.",
+    tags: ["Python", "PyTorch", "OpenCV"],
+    links: { github: "https://github.com/MrDeun/BackgroundRemoval" },
+  },
+  {
+    title: "Godot FPS",
+    description: "3D first-person shooter prototype in Godot with fast-paced movement. Custom levels built in Trenchbroom, enemy AI that tracks and damages the player.",
+    tags: ["GDScript", "Godot", "3D"],
+    links: { github: "https://github.com/MrDeun/Godot_FPS" },
+  },
+  {
+    title: "Home Lab",
+    description: "Fedora Linux home server on repurposed hardware. Docker Compose stack with Jellyfin, remote access via Twingate for encrypted connectivity.",
+    tags: ["Linux", "Docker", "Networking"],
+    links: { github: "https://github.com/MrDeun" },
+  },
+];
+---
+
+<section id="projects" class="border-t border-[#33ff33]/10 px-6 py-28">
+  <div class="mx-auto max-w-5xl">
+    <p class="mb-2 text-xs tracking-wider text-[#1a7a1a]">$ ls -la projects/</p>
+    <h3 class="mb-10 text-2xl font-display text-glow md:text-3xl">PROJECT_DIRECTORY</h3>
+    <div class="grid gap-5 sm:grid-cols-2">
+      {projects.map(({ title, description, tags, links }) => (
+        <div class="border border-[#33ff33]/15 bg-[#0f1a0f] p-5 transition-all duration-200 hover:border-[#33ff33]/30">
+          <div class="mb-3 flex items-center gap-2 border-b border-[#33ff33]/10 pb-3">
+            <span class="text-xs text-[#1a7a1a]">📁</span>
+            <h4 class="text-sm font-display text-glow-sm">{title}</h4>
+          </div>
+          <p class="mb-4 text-sm leading-relaxed text-[#33ff33]/70">{description}</p>
+          <div class="mb-4 flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <span class="border border-[#33ff33]/20 px-2 py-0.5 text-xs text-[#1a7a1a]">[{tag}]</span>
+            ))}
+          </div>
+          <div class="flex gap-4 text-xs">
+            {links.github && (
+              <a href={links.github} target="_blank" rel="noopener noreferrer" class="text-[#1a7a1a] transition-all duration-200 hover:text-[#33ff33] hover:text-glow-sm">
+                $ view_source
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

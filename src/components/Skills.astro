@@ -1,0 +1,39 @@
+---
+const skillCategories = [
+  {
+    title: "LANGUAGES",
+    skills: ["Java", "C++", "Go","Odin", "TypeScript", "Python", "C", "JavaScript", "SQL"],
+  },
+  {
+    title: "FRAMEWORKS",
+    skills: ["Spring Boot", "React", "NextJS", "Godot", "ThreeJS", "Docker", "Raylib"],
+  },
+  {
+    title: "TOOLS",
+    skills: ["Git", "Docker Compose", "Linux", "Fedora", "VSCode / VSCodium", "CMake"],
+  },
+  {
+    title: "CONCEPTS",
+    skills: ["Fullstack Dev", "TCP/Networking", "Multithreading", "REST APIs", "Unit Testing", "OOP"],
+  },
+];
+---
+
+<section id="skills" class="border-t border-[#33ff33]/10 px-6 py-28">
+  <div class="mx-auto max-w-5xl">
+    <p class="mb-2 text-xs tracking-wider text-[#1a7a1a]">$ cat skills.txt</p>
+    <h3 class="mb-10 text-2xl font-display text-glow md:text-3xl">SKILL_MATRIX</h3>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {skillCategories.map(({ title, skills }) => (
+        <div class="border border-[#33ff33]/15 bg-[#0f1a0f] p-5">
+          <p class="mb-4 text-xs tracking-widest text-[#1a7a1a]">&gt; {title}</p>
+          <ul class="space-y-2">
+            {skills.map((skill) => (
+              <li class="text-sm text-[#33ff33]/80">[{skill}]</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

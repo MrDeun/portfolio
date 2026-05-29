@@ -1,1 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #33ff33;
+  --color-primary-dark: #22cc22;
+  --color-accent: #66ff66;
+  --color-accent-light: #99ff99;
+  --font-mono: 'Share Tech Mono', 'Courier New', monospace;
+  --font-display: 'VT323', 'Courier New', monospace;
+}
+
+html {
+  background-color: #0a0e0a;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  color: #33ff33;
+  background-color: #0a0e0a;
+}
+
+::selection {
+  background: #33ff33;
+  color: #0a0e0a;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0e0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #33ff33;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #22cc22;
+}
+
+.text-glow {
+  text-shadow: 0 0 7px rgba(51, 255, 51, 0.5), 0 0 15px rgba(51, 255, 51, 0.25), 0 0 30px rgba(51, 255, 51, 0.1);
+}
+
+.text-glow-sm {
+  text-shadow: 0 0 4px rgba(51, 255, 51, 0.4);
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typewriter-line {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 1.5s steps(40, end) both;
+}
+
+.typewriter-line:nth-child(1) { animation-delay: 0.2s; width: 0; animation-fill-mode: forwards; }
+.typewriter-line:nth-child(2) { animation-delay: 1.0s; width: 0; animation-fill-mode: forwards; }
+.typewriter-line:nth-child(3) { animation-delay: 1.8s; width: 0; animation-fill-mode: forwards; }
+.typewriter-line:nth-child(4) { animation-delay: 2.6s; width: 0; animation-fill-mode: forwards; }
+.typewriter-line:nth-child(5) { animation-delay: 3.4s; width: 0; animation-fill-mode: forwards; }
+.typewriter-line:nth-child(6) { animation-delay: 4.2s; width: 0; animation-fill-mode: forwards; }
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.terminal-fade-in {
+  animation: termFadeIn 0.6s ease-out both;
+}
+
+.terminal-fade-in:nth-child(1) { animation-delay: 0s; }
+.terminal-fade-in:nth-child(2) { animation-delay: 0.15s; }
+.terminal-fade-in:nth-child(3) { animation-delay: 0.3s; }
+.terminal-fade-in:nth-child(4) { animation-delay: 0.45s; }
+.terminal-fade-in:nth-child(5) { animation-delay: 0.6s; }
+.terminal-fade-in:nth-child(6) { animation-delay: 0.75s; }
+.terminal-fade-in:nth-child(7) { animation-delay: 0.9s; }
+.terminal-fade-in:nth-child(8) { animation-delay: 1.05s; }
+
+@keyframes termFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}

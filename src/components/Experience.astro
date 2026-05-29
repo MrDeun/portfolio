@@ -1,0 +1,82 @@
+---
+const experiences = [
+  {
+    role: "Fullstack Developer Intern",
+    company: "Esovisco S.P z.o.o",
+    period: "Jul 2025 — Aug 2026",
+    description: [
+      "Developed full-stack features using Next.js frontend and Java Spring Boot backend in a production web application",
+      "Implemented backend endpoints including email-based password recovery and authentication flows",
+      "Built a custom calendar component to display and manage entry statuses, improving end-user usability",
+      "Collaborated on debugging and resolving issues across the stack in a small agile team",
+    ],
+  },
+  {
+    role: "Developer — Java Summary",
+    company: "Personal Project",
+    period: "Sep 2025 — Jan 2026",
+    description: [
+      "Built a Spring Boot application that summarizes Java classes and generates tests using OpenAI LLMs",
+      "Implemented agents that read code, identify dependencies, and request additional files for accurate analysis",
+      "Published and maintained on GitHub: github.com/MrDeun/JavaSummary",
+    ],
+  },
+  {
+    role: "Developer — Game Boy Emulator",
+    company: "Personal Project",
+    period: "Oct 2025 — Feb 2026",
+    description: [
+      "Implemented a low-level Nintendo Game Boy emulator in C++ with a full 8-bit CPU based on the Intel 8080",
+      "Designed a multithreaded architecture separating graphical interface from core emulation loop",
+      "Validated CPU behavior using community ROM test suites to ensure correctness of the emulation",
+    ],
+  },
+  {
+    role: "Developer — Background Removal",
+    company: "Personal Project",
+    period: "Dec 2024 — Feb 2025",
+    description: [
+      "Built a background-removal model using Python, PyTorch, and OpenCV with autoencoder architecture",
+      "Prepared training data from COCO dataset and implemented pixel-level foreground/background segmentation",
+    ],
+  },
+  {
+    role: "Game Developer — Godot FPS",
+    company: "Personal Project",
+    period: "Mar 2024 — Jun 2024",
+    description: [
+      "Designed and developed a 3D first-person shooter prototype in Godot with fast-paced movement and combat",
+      "Built custom levels in Trenchbroom and integrated them into Godot using an export plugin workflow",
+      "Implemented basic enemy AI capable of tracking and damaging the player",
+    ],
+  },
+];
+---
+
+<section id="experience" class="px-6 py-28">
+  <div class="mx-auto max-w-4xl">
+    <p class="mb-2 text-xs tracking-wider text-[#1a7a1a]">$ cat experience.log</p>
+    <h3 class="mb-10 text-2xl font-display text-glow md:text-3xl">EMPLOYMENT_HISTORY</h3>
+    <div class="space-y-8">
+      {experiences.map(({ role, company, period, description }) => (
+        <div class="border border-[#33ff33]/15 bg-[#0f1a0f] p-5 md:p-6">
+          <div class="mb-3 flex flex-wrap items-baseline justify-between gap-2 border-b border-[#33ff33]/10 pb-3">
+            <div>
+              <h4 class="text-sm font-display text-glow-sm">{role}</h4>
+              <p class="text-xs text-[#1a7a1a]">{company}</p>
+            </div>
+            <span class="text-xs text-[#1a7a1a]">{period}</span>
+          </div>
+          <ul class="space-y-2">
+            {description.map((item) => (
+              <li class="flex gap-2 text-sm text-[#33ff33]/70">
+                <span class="mt-0.5 shrink-0 text-[#1a7a1a]">&gt;</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+---
+const links = [
+  { href: "#about", label: "ABOUT" },
+  { href: "#skills", label: "SKILLS" },
+  { href: "#experience", label: "EXPERIENCE" },
+  { href: "#projects", label: "PROJECTS" },
+  { href: "#contact", label: "CONTACT" },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 border-b border-[#33ff33]/20 bg-[#0a0e0a]/95 backdrop-blur-sm">
+  <nav class="mx-auto flex max-w-5xl items-center justify-between px-6 py-3">
+    <a href="#" class="text-sm tracking-widest text-glow-sm uppercase">VAULT-TEC</a>
+    <ul class="flex items-center gap-1 text-xs uppercase tracking-wider">
+      {links.map(({ href, label }) => (
+        <li>
+          <a href={href} class="px-3 py-1.5 text-[#1a7a1a] transition-all duration-200 hover:text-[#33ff33] hover:text-glow-sm">[ {label} ]</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
