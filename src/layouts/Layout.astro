@@ -90,6 +90,14 @@ const { title = "VAULT-TEC TERMINAL" } = Astro.props as Props;
             v,
         );
     }
+	const PERIOD = 6.0
+
+function tiledNoise(nx: number, ny:number) {
+  const angle = (nx % PERIOD) / PERIOD * Math.PI * 2;
+  const cx = Math.cos(angle) * PERIOD / (Math.PI * 2);
+  const cy = Math.sin(angle) * PERIOD / (Math.PI * 2);
+  return noise(cx, ny + cy * 0.3);
+}
 
     let t = 0;
 
@@ -102,6 +110,9 @@ const { title = "VAULT-TEC TERMINAL" } = Astro.props as Props;
         const w = canvas.width;
         const h = canvas.height;
 
+		const ratio = w / h 
+
+
         ctx.clearRect(0, 0, w, h);
 
         ctx.setLineDash([4, 6]);
@@ -112,9 +123,9 @@ const { title = "VAULT-TEC TERMINAL" } = Astro.props as Props;
         const step = 6;
         for (let y = 0; y < h; y += step) {
             for (let x = 0; x < w; x += step) {
-                const n = noise(x / 240 - startX * 0.1, y / 240 - startY * 0.1);
+                const n = noise(x / 360 - offsetX * 0.05, y / 360 - offsetY * 0.05);
                 const alpha = Math.max(0, n * 0.7 + 0.2);
-                ctx.fillStyle = `rgba(0,80,0,${alpha.toFixed(4)})`;
+                ctx.fillStyle = `rgba(0,40,0,${alpha.toFixed(2)})`;
                 ctx.fillRect(x, y, step + 1, step + 1);
             }
         }
@@ -136,8 +147,8 @@ const { title = "VAULT-TEC TERMINAL" } = Astro.props as Props;
 
         ctx.setLineDash([]);
 
-        offsetX -= 0.15;
-        offsetY -= 0.08;
+        offsetX -= 0.15 * ratio;
+        offsetY -= 0.15 * 1/ratio;
         requestAnimationFrame(draw);
     }
 
